@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers
 
 import 'package:car_rantal_application/utils/app_colors.dart';
 
@@ -70,32 +70,57 @@ class _AppBarHomepageState extends State<AppBarHomepage> {
               height: height * 0.05,
               width: width * 0.76,
               child: TextField(
-                style: TextStyle(fontSize: 16),
+                style: TextStyle(fontSize: 15),
                 textAlignVertical: TextAlignVertical.center,
                 decoration: InputDecoration(
-                  hintText: 'Search for cars and locations',
-                  hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
-                  filled: true,
-                  fillColor: AppColors.searchInput,
-                  contentPadding: const EdgeInsets.symmetric(
-                      vertical: 14.0, horizontal: 15),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(22),
-                      borderSide: BorderSide.none),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(22),
-                      borderSide: BorderSide.none),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(22.0),
-                    borderSide: BorderSide(
-                        color: Color.fromARGB(255, 0, 140, 255), width: 2.0),
-                  ),
-                ),
+                    hintText: 'Search for cars and locations',
+                    hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
+                    filled: true,
+                    fillColor: AppColors.searchInput,
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 9.0, horizontal: 10),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(22),
+                        borderSide: BorderSide.none),
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(22),
+                        borderSide: BorderSide.none),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(22.0),
+                      borderSide: BorderSide(
+                          color: Color.fromARGB(255, 0, 140, 255), width: 2.0),
+                    ),
+                    prefixIcon: Icon(
+                      Icons.search,
+                      color: Colors.black,
+                      size: 28,
+                    )),
               ),
             ),
           ],
         ),
       ),
+      Padding(
+        padding: const EdgeInsets.only(top: 122, left: 330),
+        child: Row(
+          children: [
+            Container(
+              height: height * 0.048,
+              decoration: BoxDecoration(
+                  color: AppColors.searchInput,
+                  borderRadius: BorderRadius.circular(16)),
+              child: IconButton(
+                icon: Icon(
+                  Icons.tune,
+                  color: Colors.black,
+                  size: 25,
+                ),
+                onPressed: () {},
+              ),
+            )
+          ],
+        ),
+      )
     ]);
   }
 }

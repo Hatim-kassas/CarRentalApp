@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:car_rantal_application/utils/app_colors.dart';
 import 'package:car_rantal_application/widgets/Widget%20Custom%20Button/custom_button.dart';
 import 'package:car_rantal_application/widgets/Widget%20Custom%20TextFormFied/custom_text_form_field.dart';
@@ -24,8 +26,9 @@ class _SignUpPageState extends State<SignUpPage> {
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: ListView(
-        children: [ Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25),
+        children: [ 
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25),
           child: 
           Column(
             children: [

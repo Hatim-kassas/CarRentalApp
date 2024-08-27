@@ -1,0 +1,26 @@
+[
+    {
+        "nameOfCar": "Tesla",
+        "logoCar": "assets/img/carsLogo/tesla-logo.png"
+    },
+    {
+        "nameOfCar": "Mercedes",
+        "logoCar": "assets/img/carsLogo/mercedes_logos.png"
+    },
+    {
+        "nameOfCar": "BMW",
+        "logoCar": "assets/img/carsLogo/bmw-logo.png"
+    },
+    {
+        "nameOfCar": "Audi",
+        "logoCar": "assets/img/carsLogo/audi-logo.png"
+    },
+    {
+        "nameOfCar": "Jeep",
+        "logoCar": "assets/img/carsLogo/jeep-logo.png"
+    },
+    {
+        "nameOfCar": "Ferrari",
+        "logoCar": "assets/img/carsLogo/ferrari-logo.png"
+    }
+]

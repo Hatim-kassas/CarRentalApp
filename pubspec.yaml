@@ -63,6 +63,13 @@ flutter:
     - assets/img/CarWelcomePage.png
     - assets/img/Logo.png
     - assets/img/logoGoogle.png
+    - assets/json/cars.json
+    - assets/img/carsLogo/audi-logo.png
+    - assets/img/carsLogo/bmw-logo.png
+    - assets/img/carsLogo/ferrari-logo.png
+    - assets/img/carsLogo/jeep-logo.png
+    - assets/img/carsLogo/mercedes_logos.png
+    - assets/img/carsLogo/tesla-logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

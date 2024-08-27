@@ -5,7 +5,7 @@ class AppColors {
   static const Color backgroundColorGrey = Color.fromRGBO(205, 205, 205, 1);
   static const Color buttonWelcomPage = Color.fromRGBO(220, 86, 86, 1);
   static const Color buttonRed = Color.fromRGBO(236, 95, 95, 1);
-  
+
   static const Color textWhite = Color.fromRGBO(228, 228, 228, 1);
   static const Color textgrey1 = Color.fromRGBO(159, 159, 159, 1);
   static const Color textgrey2 = Color.fromRGBO(61, 61, 61, 1);
@@ -17,5 +17,8 @@ class AppColors {
   static const Color focuseBorder = Color.fromRGBO(0, 126, 155, 1);
   static const Color inputText = Color.fromRGBO(53, 53, 53, 0.35);
   static const Color selectOption = Color.fromRGBO(47, 144, 209, 1);
-  static const Color searchInput = Color.fromRGBO(217, 217, 217, 1);
-} 
+  static const Color searchInput = Color.fromRGBO(216, 216, 216, 1);
+  
+  static const Color seeAll = Color.fromRGBO(0, 122, 149, 1);
+
+}
