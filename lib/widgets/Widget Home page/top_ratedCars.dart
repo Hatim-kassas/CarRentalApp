@@ -3,14 +3,14 @@
 import 'package:car_rantal_application/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
-class TopBradsWidget extends StatefulWidget {
-  const TopBradsWidget({super.key});
+class TopRatedcarsWidget extends StatefulWidget {
+  const TopRatedcarsWidget({super.key});
 
   @override
-  State<TopBradsWidget> createState() => _TopBradsWidgetState();
+  State<TopRatedcarsWidget> createState() => _TopRatedcarsWidgetState();
 }
 
-class _TopBradsWidgetState extends State<TopBradsWidget> {
+class _TopRatedcarsWidgetState extends State<TopRatedcarsWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,7 +20,7 @@ class _TopBradsWidgetState extends State<TopBradsWidget> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Top Brands',
+              'Top Rated Cars',
               style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "480628397223",
+    "project_id": "car-rental-project-fb6ab",
+    "storage_bucket": "car-rental-project-fb6ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:480628397223:android:6b2f2667243a2377de3782",
+        "android_client_info": {
+          "package_name": "com.example.car_rantal_application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPIi0C9ZkqDeuP4DFP9N-jyZncF7G80gM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

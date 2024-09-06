@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:car_rantal_application/utils/app_colors.dart';
 
 import 'package:flutter/material.dart';
@@ -12,7 +14,7 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-                obscureText: obscureText ?? false, 
+                obscureText: obscureText ?? false,
                 validator: validator,
                 controller: controller,
                 decoration: InputDecoration(

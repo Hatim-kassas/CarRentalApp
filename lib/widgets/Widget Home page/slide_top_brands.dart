@@ -52,7 +52,7 @@ class _SlideTopBrandsState extends State<SlideTopBrands> {
             return Center(child: Text('No data available'));
           } else {
             return SizedBox(
-              height: height * 0.2, // Adjust the height as needed
+              height: height * 0.16, // Adjust the height as needed
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: snapshot.data!.length,
@@ -64,8 +64,8 @@ class _SlideTopBrandsState extends State<SlideTopBrands> {
                     child: Column(
                       children: [
                         Container(
-                          width: width * 0.29,
-                          height: height * 0.1,
+                          width: width * 0.25,
+                          height: height * 0.090,
                           decoration: BoxDecoration(
                             image: DecorationImage(
                               image: AssetImage(car.logoCar),
@@ -73,7 +73,7 @@ class _SlideTopBrandsState extends State<SlideTopBrands> {
                             ),
                             border: Border.all(
                               color: Colors.grey,
-                              width: 2.0,
+                              width: 1.0,
                             ),
                             borderRadius: BorderRadius.circular(25),
                           ),
