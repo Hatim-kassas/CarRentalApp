@@ -7,14 +7,14 @@ import 'package:car_rantal_application/widgets/Widget%20Logo/logo.dart';
 import 'package:car_rantal_application/widgets/Widget%20Welcom/welcom_title.dart';
 import 'package:flutter/material.dart';
 
-class WelcomPage extends StatefulWidget {
-  const WelcomPage({super.key});
+class WelcomePage extends StatefulWidget {
+  const WelcomePage({super.key});
 
   @override
-  State<WelcomPage> createState() => WelcomPageState();
+  State<WelcomePage> createState() => WelcomePageState();
 }
 
-class WelcomPageState extends State<WelcomPage> {
+class WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -64,7 +64,7 @@ class WelcomPageState extends State<WelcomPage> {
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => LoginPage()));
-                print('Done');
+                print('### Navigate welcome page to Login page ###');
               },
             ),
           ),

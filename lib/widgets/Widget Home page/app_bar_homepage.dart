@@ -19,7 +19,7 @@ class _AppBarHomepageState extends State<AppBarHomepage> {
     return Stack(children: [
       Container(
         width: width,
-        height: height * 0.24,
+        height: height * 0.23,
         decoration: BoxDecoration(
             color: AppColors.backgroundColorBlue,
             borderRadius: BorderRadius.only(

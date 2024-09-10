@@ -1,6 +1,7 @@
 class Car {
   late String id, image, title, date;
-  late int price, stars, review;
+  late int price, review;
+  late double stars;
 
   Car({
     required this.id,
@@ -19,7 +20,9 @@ class Car {
     date = json['date'];
     price = json['price'];
     review = json['review'];
-    stars = json['stars'];
+    stars = (json['stars'] is int)
+        ? (json['stars'] as int).toDouble()
+        : json['stars'].toDouble();
   }
 
   Map<String, dynamic> toJson() {

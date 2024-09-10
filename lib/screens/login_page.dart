@@ -1,5 +1,6 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last, avoid_print
 
+import 'package:car_rantal_application/screens/sign_up_page.dart';
 import 'package:car_rantal_application/utils/app_colors.dart';
 import 'package:car_rantal_application/widgets/Widget%20Custom%20Button/custom_button.dart';
 import 'package:car_rantal_application/widgets/Widget%20Custom%20TextFormFied/custom_text_form_field.dart';
@@ -97,7 +98,13 @@ class _LoginPageState extends State<LoginPage> {
                         fontSize: 16, color: AppColors.textLowScreen1),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignUpPage()));
+                      print('### Navigate Login page to SignUp page ###');
+                    },
                     child: Text("Sign Up",
                         style: TextStyle(
                             color: AppColors.textLowScreen2,
