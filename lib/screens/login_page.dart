@@ -99,11 +99,8 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignUpPage()));
-                      print('### Navigate Login page to SignUp page ###');
+                      Navigator.of(context).pushReplacementNamed('Sign Up');
+                      print('### Navigate Login page to SignUp ###');
                     },
                     child: Text("Sign Up",
                         style: TextStyle(

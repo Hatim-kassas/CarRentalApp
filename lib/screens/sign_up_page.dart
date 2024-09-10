@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, avoid_print
 
 import 'package:car_rantal_application/utils/app_colors.dart';
 import 'package:car_rantal_application/widgets/Widget%20Custom%20Button/custom_button.dart';
@@ -15,25 +15,25 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  
+
 
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
-  
+
    @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: ListView(
-        children: [ 
+        children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25),
-          child: 
+          child:
           Column(
             children: [
               Center(
-                child: 
+                child:
                   Logo(
                     padding: EdgeInsets.only(top: 20),
                     width: width * 0.48,
@@ -52,7 +52,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 textAlign: TextAlign.center,
               ),
 
-        
+
               SizedBox(height: height * 0.04,),
               CustomTextFormField(
                   hintText: 'Enter your Full Name',
@@ -64,32 +64,32 @@ class _SignUpPageState extends State<SignUpPage> {
                   hintText: 'Enter your email',
                   controller: email,
               ),
-              
+
               SizedBox(height: height * 0.015,),
               CustomTextFormField(
                   hintText: 'Enter your password',
                   controller: password,
                   obscureText: true,
               ),
-              
+
               SizedBox(height: height * 0.015,),
               CustomTextFormField(
                   hintText: 'Enter Confirm password',
                   controller: password,
                   obscureText: true,
               ),
-              
+
               SizedBox(height: height * 0.015,),
               DropdownMenuWidget(),
 
               SizedBox(height: height * 0.015,),
               CustomButton(
-                titleBtn: 'Sign Up', 
-                colorBtn: AppColors.buttonRed, 
+                titleBtn: 'Sign Up',
+                colorBtn: AppColors.buttonRed,
                 colorTitle: AppColors.textWhite,
-                onPressed: (){}, 
+                onPressed: (){},
               ),
-              
+
               SizedBox(height: height * 0.015,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -101,7 +101,10 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).pushReplacementNamed('Login');
+                      print('### Navigate SignUp page to Login ###');
+                    },
                     child: Text("Login",
                       style: TextStyle(
                         color: AppColors.textLowScreen2,
@@ -109,7 +112,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         fontWeight: FontWeight.w700
                       )
                     ),
-                  ) 
+                  )
                 ],
               )
 
