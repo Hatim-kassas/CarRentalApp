@@ -1,8 +1,11 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, avoid_print
 
+import 'package:car_rantal_application/services/location_service.dart';
 import 'package:car_rantal_application/utils/app_colors.dart';
 
 import 'package:flutter/material.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:geolocator/geolocator.dart';
 
 class AppBarHomepage extends StatefulWidget {
   const AppBarHomepage({super.key});
@@ -12,6 +15,51 @@ class AppBarHomepage extends StatefulWidget {
 }
 
 class _AppBarHomepageState extends State<AppBarHomepage> {
+  late double lat;
+  late double long;
+  String? city;
+  String? country;
+
+  final LocationService _locationService = LocationService();
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchLocation();
+    _listenForLocationChanges();
+  }
+
+  // Fetch the initial location
+  Future<void> _fetchLocation() async {
+    try {
+      Position position = await _locationService.determinePosition();
+      Placemark place = await _locationService.getPlaceFromCoordinates(
+          position.latitude, position.longitude);
+      setState(() {
+        lat = position.latitude;
+        long = position.longitude;
+        city = place.locality;
+        country = place.country;
+      });
+    } catch (e) {
+      print(e); // Handle error
+    }
+  }
+
+  // Listen for location changes and update the UI automatically
+  void _listenForLocationChanges() {
+    _locationService.getPositionStream().listen((Position position) async {
+      Placemark place = await _locationService.getPlaceFromCoordinates(
+          position.latitude, position.longitude);
+      setState(() {
+        lat = position.latitude;
+        long = position.longitude;
+        city = place.locality;
+        country = place.country;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -19,7 +67,7 @@ class _AppBarHomepageState extends State<AppBarHomepage> {
     return Stack(children: [
       Container(
         width: width,
-        height: height * 0.23,
+        height: height * 0.2,
         decoration: BoxDecoration(
             color: AppColors.backgroundColorBlue,
             borderRadius: BorderRadius.only(
@@ -27,7 +75,8 @@ class _AppBarHomepageState extends State<AppBarHomepage> {
                 bottomRight: Radius.circular(30))),
       ),
       Padding(
-        padding: const EdgeInsets.symmetric(vertical: 70, horizontal: 20),
+        // padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 20),
+        padding: const EdgeInsets.only(top: 55, left: 20, right: 20),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -42,7 +91,7 @@ class _AppBarHomepageState extends State<AppBarHomepage> {
                   width: width * 0.02,
                 ),
                 Text(
-                  'Tangier, Morocco',
+                  city != null ? "$city, $country" : 'Fetching location...',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,
@@ -50,6 +99,7 @@ class _AppBarHomepageState extends State<AppBarHomepage> {
                 )
               ],
             ),
+            // ICON NOTIFICATIONS
             Row(
               children: [
                 Icon(
@@ -63,7 +113,7 @@ class _AppBarHomepageState extends State<AppBarHomepage> {
         ),
       ),
       Padding(
-        padding: const EdgeInsets.only(top: 122, left: 20),
+        padding: const EdgeInsets.only(top: 100, left: 20, right: 20),
         child: Column(
           children: [
             SizedBox(
@@ -101,7 +151,7 @@ class _AppBarHomepageState extends State<AppBarHomepage> {
         ),
       ),
       Padding(
-        padding: const EdgeInsets.only(top: 122, left: 330),
+        padding: const EdgeInsets.only(top: 100, left: 345),
         child: Row(
           children: [
             Container(
@@ -121,6 +171,6 @@ class _AppBarHomepageState extends State<AppBarHomepage> {
           ],
         ),
       )
-    ]);
+    ]); 
   }
 }
