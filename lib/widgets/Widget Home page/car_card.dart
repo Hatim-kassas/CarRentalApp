@@ -32,15 +32,14 @@ class CarCard extends StatelessWidget {
               child: Image.network(
                 car.image,
                 fit: BoxFit.cover,
-                height: height * 0.13,
+                height: height * 0.14,
                 width: double.infinity,
               )),
           SizedBox(height: 4),
           Padding(
             padding: const EdgeInsets.only(left: 4, right: 4),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              // crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   car.title,
@@ -56,15 +55,19 @@ class CarCard extends StatelessWidget {
                     ),
                     Text(
                       " / " + car.date + " Day",
-                      style: TextStyle(
-                        fontSize: 14,
-                      ),
+                      style:
+                          TextStyle(fontSize: 14, color: Colors.grey.shade700),
                     ),
                   ],
                 ),
                 SizedBox(height: 2),
                 Row(
                   children: [
+                    Icon(
+                      Icons.star_rounded,
+                      color: Colors.amber,
+                      size: 16,
+                    ),
                     Text(car.stars.toString()),
                     Text("(" + car.review.toString() + " + Review)")
                   ],

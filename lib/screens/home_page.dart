@@ -19,15 +19,21 @@ class _HomePageState extends State<HomePage> {
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
         backgroundColor: Colors.white,
-        body: Column(
-          children: [
-            AppBarHomepage(),
-            SizedBox(
-              height: height * 0.025,
-            ),
-            SlideTopBrands(),
-            Expanded(child: CardsWidget())
-          ],
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: [
+              // App Bar Widget
+              AppBarHomepage(),
+              SizedBox(
+                height: height * 0.025,
+              ),
+              // Top Brands Widget
+              SlideTopBrands(),
+              // Top Rated Cars Widget
+              SizedBox(height: height * 0.9, child: CardsWidget()),
+            ],
+          ),
         ));
   }
 }

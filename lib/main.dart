@@ -26,19 +26,15 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
-
   @override
   void setState(VoidCallback fn) {
-      FirebaseAuth.instance
-      .authStateChanges()
-      .listen((User? user) {
-        if (user == null) {
-          print('User is currently signed out!');
-        } else {
-          print('User is signed in!');
-        }
-      });
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      if (user == null) {
+        print('User is currently signed out!');
+      } else {
+        print('User is signed in!');
+      }
+    });
     super.setState(fn);
   }
 
@@ -49,13 +45,13 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         scaffoldBackgroundColor: AppColors.backgroundColorGrey,
       ),
-      // initialRoute: 'Welcome Page',
-      // routes: {
-      //   'Welcome Page': (context) => WelcomePage(),
-      //   'Sign Up': (context) => SignUpPage(),
-      //   'Login': (context) => LoginPage()
-      // },
-      home: HomePage(),
+      initialRoute: 'Welcome Page',
+      routes: {
+        'Welcome Page': (context) => WelcomePage(),
+        'Sign Up': (context) => SignUpPage(),
+        'Login': (context) => LoginPage()
+      },
+      // home: HomePage(),
     );
   }
 }

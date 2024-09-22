@@ -14,8 +14,8 @@ class UiSlideBrand extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            width: width * 0.24,
-            height: height * 0.086,
+            width: width * 0.23,
+            height: height * 0.082,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: NetworkImage(brands.image),

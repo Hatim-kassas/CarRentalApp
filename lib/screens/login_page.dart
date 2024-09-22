@@ -39,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
               )),
               WidgetTextPage(),
               SizedBox(
-                height: height * 0.07,
+                height: height * 0.08,
               ),
               LoginWithGoogle(),
               SizedBox(
@@ -87,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: () {},
               ),
               SizedBox(
-                height: height * 0.015,
+                height: height * 0.025,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

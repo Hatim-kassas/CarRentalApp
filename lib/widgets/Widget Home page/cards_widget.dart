@@ -63,6 +63,8 @@ class _CardsWidgetState extends State<CardsWidget> {
                     } else {
                       return Expanded(
                         child: GridView.builder(
+                          physics: NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
                           padding: EdgeInsets.zero,
                           gridDelegate:
                               SliverGridDelegateWithFixedCrossAxisCount(

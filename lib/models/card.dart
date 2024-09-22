@@ -1,7 +1,6 @@
 class Car {
   late String id, image, title, date;
-  late int price, review;
-  late double stars;
+  late double price, review, stars;
 
   Car({
     required this.id,
@@ -18,8 +17,8 @@ class Car {
     image = json['image'];
     title = json['title'];
     date = json['date'];
-    price = json['price'];
-    review = json['review'];
+    price = json['price']?.toDouble();
+    review = json['review']?.toDouble();
     stars = (json['stars'] is int)
         ? (json['stars'] as int).toDouble()
         : json['stars'].toDouble();
