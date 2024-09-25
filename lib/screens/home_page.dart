@@ -4,6 +4,7 @@ import 'package:car_rantal_application/widgets/Widget%20Home%20page/app_bar_home
 import 'package:car_rantal_application/widgets/Widget%20Home%20page/cards_widget.dart';
 import 'package:car_rantal_application/widgets/Widget%20Home%20page/slide_top_brands.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,6 +20,20 @@ class _HomePageState extends State<HomePage> {
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
         backgroundColor: Colors.white,
+        bottomNavigationBar: NavigationBar(
+          height: 60,
+          selectedIndex: 0,
+
+          destinations: const [
+              NavigationDestination(
+                  icon: Icon(Iconsax.home), label: 'Home'),
+              NavigationDestination(
+                  icon: Icon(Iconsax.copy_success), label: 'Booking'),
+              NavigationDestination(
+                  icon: Icon(Iconsax.heart), label: 'Favourites'),
+              NavigationDestination(
+                  icon: Icon(Iconsax.profile_circle, size: 26,), label: 'Profile'),
+        ]),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(

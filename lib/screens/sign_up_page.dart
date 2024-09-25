@@ -19,6 +19,8 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   final signupServices = SignupServices();
 
+  GlobalKey<FormState> _formState = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -27,109 +29,125 @@ class _SignUpPageState extends State<SignUpPage> {
       body: ListView(children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
-          child: Column(
-            children: [
-              Center(
-                  child: Logo(
-                padding: EdgeInsets.only(top: 20),
-                width: width * 0.48,
-              )),
-              SizedBox(
-                height: height * 0.06,
-              ),
-              Text(
-                "Create your Swift Car account to access fast and easy \ncar rentals. Simply enter your details to start booking from \nour wide range of vehicles. \n Enjoy a seamless rental experience with instant \nconfirmation and 24/7 support.",
-                style: TextStyle(
-                    color: AppColors.textgrey2,
-                    fontSize: 14,
-                    fontFamily: 'InriaSans',
-                    fontWeight: FontWeight.w700),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(
-                height: height * 0.07,
-              ),
-              CustomTextFormField(
-                hintText: 'Enter your Full Name',
-                controller: signupServices.fullname,
-              ),
-              SizedBox(
-                height: height * 0.015,
-              ),
-              CustomTextFormField(
-                hintText: 'Enter your email',
-                controller: signupServices.email,
-              ),
-              SizedBox(
-                height: height * 0.015,
-              ),
-              CustomTextFormField(
-                hintText: 'Enter your password',
-                controller: signupServices.password,
-                obscureText: true,
-                validator: (val) {
-                  if (val == null || val.isEmpty) {
-                    return 'Password is Empty';
-                  } else if (val.length <= 5) {
-                    return 'Password is Weak';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: height * 0.015,
-              ),
-              CustomTextFormField(
-                hintText: 'Enter Confirm password',
-                controller: signupServices.confirmPassword,
-                obscureText: true,
-                validator: (val) {
-                  if (val != signupServices.password.text) {
-                    return 'Passwords do not match';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: height * 0.015,
-              ),
-              DropdownMenuWidget(),
-              SizedBox(
-                height: height * 0.015,
-              ),
-              CustomButton(
-                titleBtn: 'Sign Up',
-                colorBtn: AppColors.buttonRed,
-                colorTitle: AppColors.textWhite,
-                onPressed: () {
-                  signupServices.signUp();
-                },
-              ),
-              SizedBox(
-                height: height * 0.025,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "I have an acconut? ",
-                    style: TextStyle(
-                        fontSize: 16, color: AppColors.textLowScreen1),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.of(context).pushReplacementNamed('Login');
-                      print('### Navigate SignUp page to Login ###');
-                    },
-                    child: Text("Login",
-                        style: TextStyle(
-                            color: AppColors.textLowScreen2,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700)),
-                  )
-                ],
-              )
-            ],
+          child: Form(
+            key: _formState,
+            child: Column(
+              children: [
+                Center(
+                    child: Logo(
+                  padding: EdgeInsets.only(top: 20),
+                  width: width * 0.48,
+                )),
+                SizedBox(
+                  height: height * 0.06,
+                ),
+                Text(
+                  "Create your Swift Car account to access fast and easy \ncar rentals. Simply enter your details to start booking from \nour wide range of vehicles. \n Enjoy a seamless rental experience with instant \nconfirmation and 24/7 support.",
+                  style: TextStyle(
+                      color: AppColors.textgrey2,
+                      fontSize: 14,
+                      fontFamily: 'InriaSans',
+                      fontWeight: FontWeight.w700),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  height: height * 0.06,
+                ),
+                CustomTextFormField(
+                  hintText: 'Enter your Full Name',
+                  controller: signupServices.fullname,
+                ),
+                SizedBox(
+                  height: height * 0.015,
+                ),
+                CustomTextFormField(
+                  hintText: 'Enter your email',
+                  controller: signupServices.email,
+                  validator: (val) {
+                    if (val == null || val.isEmpty) {
+                      return 'Email is Empty';
+                    }
+                    String pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$';
+                    RegExp regExp = RegExp(pattern);
+                    if (!regExp.hasMatch(val)){
+                      return 'Enter a valid email';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: height * 0.015,
+                ),
+                CustomTextFormField(
+                  hintText: 'Enter your password',
+                  controller: signupServices.password,
+                  obscureText: true,
+                  validator: (val) {
+                    if (val == null || val.isEmpty) {
+                      return 'Password is Empty';
+                    } else if (val.length <= 5) {
+                      return 'Password is Weak';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: height * 0.015,
+                ),
+                CustomTextFormField(
+                  hintText: 'Enter Confirm password',
+                  controller: signupServices.confirmPassword,
+                  obscureText: true,
+                  validator: (val) {
+                    if (val != signupServices.password.text) {
+                      return 'Passwords do not match';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: height * 0.015,
+                ),
+                DropdownMenuWidget(),
+                SizedBox(
+                  height: height * 0.015,
+                ),
+                CustomButton(
+                  titleBtn: 'Sign Up',
+                  colorBtn: AppColors.buttonRed,
+                  colorTitle: AppColors.textWhite,
+                  onPressed: () {
+                    if (_formState.currentState!.validate()) {
+                      signupServices.signUp(context);
+                    }
+                  },
+                ),
+                SizedBox(
+                  height: height * 0.025,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "I have an acconut? ",
+                      style: TextStyle(
+                          fontSize: 16, color: AppColors.textLowScreen1),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.of(context).pushReplacementNamed('Login');
+                        print('### Navigate SignUp page to Login ###');
+                      },
+                      child: Text("Login",
+                          style: TextStyle(
+                              color: AppColors.textLowScreen2,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700)),
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ]),

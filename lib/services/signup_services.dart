@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable, use_build_context_synchronously
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -7,21 +9,22 @@ class SignupServices {
   TextEditingController password = TextEditingController();
   TextEditingController confirmPassword = TextEditingController();
 
-  Future<void> signUp() async {
+  Future<void> signUp(BuildContext context) async {
     if (password.text == confirmPassword.text) {
-      await createUserWithEmailAndPassword();
+      await createUserWithEmailAndPassword(context);
     } else {
       print('Passwords do not match');
     }
   }
 
-  Future createUserWithEmailAndPassword() async {
+  Future createUserWithEmailAndPassword(BuildContext context) async {
     try {
       final credential =
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email.text,
         password: password.text,
       );
+      Navigator.of(context).pushReplacementNamed('Login');
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         print('The password provided is too weak.');
