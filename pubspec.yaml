@@ -78,6 +78,8 @@ flutter:
     - assets/img/carsLogo/mercedes_logos.png
     - assets/img/carsLogo/tesla-logo.png
     - assets/img/TeslaCar.jfif
+    - assets/img/images.jfif
+    - assets/img/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

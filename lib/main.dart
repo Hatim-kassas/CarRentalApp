@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, avoid_print
 
+import 'package:car_rantal_application/screens/car_deatil.dart';
 import 'package:car_rantal_application/screens/home_page.dart';
 import 'package:car_rantal_application/screens/login_page.dart';
 import 'package:car_rantal_application/screens/sign_up_page.dart';
@@ -52,7 +53,7 @@ class _MyAppState extends State<MyApp> {
       //   'Login': (context) => LoginPage(),
       //   'Home Page': (context) => HomePage()
       // },
-      home: HomePage(),
+      home: CarDeatil(),
     );
   }
 }

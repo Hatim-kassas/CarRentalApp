@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_unnecessary_containers
+// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
 
 import 'package:car_rantal_application/services/car_card_services.dart';
 import 'package:car_rantal_application/utils/app_colors.dart';
