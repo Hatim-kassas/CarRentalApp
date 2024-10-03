@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, sort_child_properties_last
-
 import 'package:car_rantal_application/utils/app_colors.dart';
+import 'package:car_rantal_application/widgets/Widget%20Car%20Deatil/car_info.dart';
+import 'package:car_rantal_application/widgets/Widget%20Car%20Deatil/car_specs.dart';
 import 'package:car_rantal_application/widgets/Widget%20Car%20Deatil/profile_info.dart';
 import 'package:car_rantal_application/widgets/Widget%20Car%20Deatil/title_image_widget.dart';
 import 'package:flutter/material.dart';
@@ -62,80 +63,18 @@ class _CarDeatilState extends State<CarDeatil> {
               SizedBox(
                 height: height * 0.01,
               ),
-              Text(
-                'Car Info',
-                style: TextStyle(
-                    fontSize: 21,
-                    fontFamily: 'InriaSans',
-                    fontWeight: FontWeight.bold),
+              CarInfo(),// THIS PART Car Info
+              SizedBox(
+                height: height * 0.01,
+              ),
+              Divider(
+                color: Colors.grey.shade400,
+                thickness: 1,
               ),
               SizedBox(
-                height: height * 0.02,
+                height: height * 0.01,
               ),
-              Column(
-                children: [
-                  Row(
-                    children: [
-                      Icon(
-                        Iconsax.people,
-                        color: AppColors.seeAll,
-                      ),
-                      SizedBox(
-                        width: width * 0.02,
-                      ),
-                      Text(
-                        '5 Passages',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontFamily: 'InriaSans',
-                        ),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: height * 0.024,
-                  ),
-                  Row(
-                    children: [
-                      Icon(
-                        Iconsax.people,
-                        color: AppColors.seeAll,
-                      ),
-                      SizedBox(
-                        width: width * 0.02,
-                      ),
-                      Text(
-                        '5 Passages',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontFamily: 'InriaSans',
-                        ),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: height * 0.024,
-                  ),
-                  Row(
-                    children: [
-                      Icon(
-                        Iconsax.people,
-                        color: AppColors.seeAll,
-                      ),
-                      SizedBox(
-                        width: width * 0.02,
-                      ),
-                      Text(
-                        '5 Passages',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontFamily: 'InriaSans',
-                        ),
-                      )
-                    ],
-                  ),
-                ],
-              ),
+              CarSpecs(),
             ],
           ),
         ),

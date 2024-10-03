@@ -14,6 +14,7 @@ analyzer:
     prefer_const_constructors: ignore ignore ignore ignore
     prefer_const_literals_to_create_immutables: ignore
     prefer_final_fields: ignore
+    prefer_interpolation_to_compose_strings: ignore ignore
 include: package:flutter_lints/flutter.yaml
 
 linter:
