@@ -58,6 +58,7 @@ class WelcomePageState extends State<WelcomePage> {
             left: width * 0.04,
             right: width * 0.04,
             child: CustomButton(
+              fontBtn: 24,
               titleBtn: "Let's Go!",
               colorBtn: AppColors.buttonRed,
               colorTitle: AppColors.textWhite,

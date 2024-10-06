@@ -88,8 +88,10 @@ class _LoginPageState extends State<LoginPage> {
                   titleBtn: 'Login',
                   colorBtn: AppColors.buttonRed,
                   colorTitle: AppColors.textWhite,
+                  fontBtn: 24,
                   onPressed: () {
-                    loginServices.signInWithEmailAndPassword(context);
+                    // loginServices.signInWithEmailAndPassword(context);
+                    Navigator.of(context).pushReplacementNamed('Home Page');
                   },
                 ),
                 SizedBox(
@@ -101,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                     Text(
                       "Don't have an account? ",
                       style: TextStyle(
-                          fontSize: 16, color: AppColors.textLowScreen1),
+                          fontSize: 16, color: AppColors.textLowScreen1, fontFamily: 'InriaSans',),
                     ),
                     InkWell(
                       onTap: () {
@@ -112,6 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                           style: TextStyle(
                               color: AppColors.textLowScreen2,
                               fontSize: 16,
+                              fontFamily: 'InriaSans',
                               fontWeight: FontWeight.w700)),
                     )
                   ],

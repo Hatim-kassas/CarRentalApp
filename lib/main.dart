@@ -46,14 +46,13 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         scaffoldBackgroundColor: AppColors.backgroundColorGrey,
       ),
-      // initialRoute: 'Welcome Page',
-      // routes: {
-      //   'Welcome Page': (context) => WelcomePage(),
-      //   'Sign Up': (context) => SignUpPage(),
-      //   'Login': (context) => LoginPage(),
-      //   'Home Page': (context) => HomePage()
-      // },
-      home: CarDeatil(),
+      initialRoute: 'Welcome Page',
+      routes: {
+        'Welcome Page': (context) => WelcomePage(),
+        'Sign Up': (context) => SignUpPage(),
+        'Login': (context) => LoginPage(),
+        'Home Page': (context) => HomePage()
+      },
     );
   }
 }

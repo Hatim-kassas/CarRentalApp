@@ -22,7 +22,8 @@ class _ProfileInfoState extends State<ProfileInfo> {
         Row(
           children: [
             Container(
-              padding: const EdgeInsets.all(3), // Optional padding for space around the border
+              padding: const EdgeInsets.all(
+                  3), // Optional padding for space around the border
               decoration: const BoxDecoration(
                 shape: BoxShape.circle, // Ensure the shape is a circle
                 color: Colors
@@ -40,9 +41,9 @@ class _ProfileInfoState extends State<ProfileInfo> {
                   // ClipOval ensures the image is clipped in a circle
                   child: Image.asset(
                     'assets/img/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg',
-                    width: width * 0.18,
+                    width: width * 0.16,
                     height: width *
-                        0.18, // Ensure width and height are the same for a circular image
+                        0.16, // Ensure width and height are the same for a circular image
                     fit: BoxFit.cover, // Ensure the image covers the area
                   ),
                 ),
@@ -105,18 +106,38 @@ class _ProfileInfoState extends State<ProfileInfo> {
         SizedBox(
           height: height * 0.014,
         ),
-        Text('Name of the agency :',
-            style: TextStyle(
-                fontSize: 16,
-                fontFamily: 'InriaSans',
-                color: Colors.grey.shade800)),
-        Text('Location :',
-            style: TextStyle(
-                fontSize: 16,
-                fontFamily: 'InriaSans',
-                color: Colors.grey.shade800)
+        RichText(
+          text: TextSpan(
+            children: [
+              TextSpan(
+                text: 'Name of the agency : ',
+                style: TextStyle(fontSize: 16,fontFamily: 'InriaSans',color: Colors.grey.shade700)
+              ),
+              TextSpan(
+                text: 'Car Rental Company',
+                style: TextStyle(fontSize: 16,fontFamily: 'InriaSans', color: Colors.black)
+              ),
+            ]
+          )
         ),
-    ],
+        SizedBox(
+          height: height * 0.008,
+        ),
+        RichText(
+          text: TextSpan(
+            children: [
+              TextSpan(
+                text: 'Location : ',
+                style: TextStyle(fontSize: 16,fontFamily: 'InriaSans',color: Colors.grey.shade700)
+              ),
+              TextSpan(
+                text: 'Tangier, Ibiria imam muslim',
+                style: TextStyle(fontSize: 16,fontFamily: 'InriaSans', color: Colors.black)
+              ),
+            ]
+          )
+        )
+      ],
     );
   }
 }

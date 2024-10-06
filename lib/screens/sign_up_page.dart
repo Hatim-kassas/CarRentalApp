@@ -116,6 +116,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   titleBtn: 'Sign Up',
                   colorBtn: AppColors.buttonRed,
                   colorTitle: AppColors.textWhite,
+                  fontBtn: 24,
                   onPressed: () {
                     if (_formState.currentState!.validate()) {
                       signupServices.signUp(context);
@@ -131,7 +132,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     Text(
                       "I have an acconut? ",
                       style: TextStyle(
-                          fontSize: 16, color: AppColors.textLowScreen1),
+                          fontSize: 16, color: AppColors.textLowScreen1, fontFamily: 'InriaSans',),
                     ),
                     InkWell(
                       onTap: () {
@@ -142,6 +143,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           style: TextStyle(
                               color: AppColors.textLowScreen2,
                               fontSize: 16,
+                              fontFamily: 'InriaSans',
                               fontWeight: FontWeight.w700)),
                     )
                   ],

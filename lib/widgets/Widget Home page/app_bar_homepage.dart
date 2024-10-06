@@ -124,7 +124,7 @@ class _AppBarHomepageState extends State<AppBarHomepage> {
                 textAlignVertical: TextAlignVertical.center,
                 decoration: InputDecoration(
                     hintText: 'Search for cars and locations',
-                    hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
+                    hintStyle: TextStyle(color: const Color.fromARGB(255, 141, 141, 141), fontSize: 15, fontFamily: 'InriaSans',),
                     filled: true,
                     fillColor: AppColors.searchInput,
                     contentPadding: const EdgeInsets.symmetric(
@@ -171,6 +171,6 @@ class _AppBarHomepageState extends State<AppBarHomepage> {
           ],
         ),
       )
-    ]); 
+    ]);
   }
 }

@@ -1,14 +1,18 @@
 // ignore_for_file: prefer_const_constructors, sort_child_properties_last
+import 'package:car_rantal_application/models/card.dart';
+import 'package:car_rantal_application/screens/booking_date_time.dart';
 import 'package:car_rantal_application/utils/app_colors.dart';
 import 'package:car_rantal_application/widgets/Widget%20Car%20Deatil/car_info.dart';
 import 'package:car_rantal_application/widgets/Widget%20Car%20Deatil/car_specs.dart';
 import 'package:car_rantal_application/widgets/Widget%20Car%20Deatil/profile_info.dart';
 import 'package:car_rantal_application/widgets/Widget%20Car%20Deatil/title_image_widget.dart';
+import 'package:car_rantal_application/widgets/Widget%20Custom%20Button/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
 class CarDeatil extends StatefulWidget {
-  const CarDeatil({super.key});
+  final Car car;
+  const CarDeatil({super.key, required this.car});
 
   @override
   State<CarDeatil> createState() => _CarDeatilState();
@@ -24,7 +28,7 @@ class _CarDeatilState extends State<CarDeatil> {
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
+          padding: const EdgeInsets.only(left: 20, right: 20, top: 45),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -41,7 +45,7 @@ class _CarDeatilState extends State<CarDeatil> {
               SizedBox(
                 height: height * 0.04,
               ),
-              TitleImageWidget(), // THIS PART OF CODE IMAGE OF CAR AND TITEL
+              TitleImageWidget(car: widget.car), // THIS PART OF CODE IMAGE OF CAR AND TITEL
               SizedBox(
                 height: height * 0.01,
               ),
@@ -63,7 +67,7 @@ class _CarDeatilState extends State<CarDeatil> {
               SizedBox(
                 height: height * 0.01,
               ),
-              CarInfo(),// THIS PART Car Info
+              CarInfo(), // THIS PART Car Info
               SizedBox(
                 height: height * 0.01,
               ),
@@ -75,6 +79,26 @@ class _CarDeatilState extends State<CarDeatil> {
                 height: height * 0.01,
               ),
               CarSpecs(),
+              SizedBox(
+                height: height * 0.02,
+              ),
+              CustomButton(
+                  titleBtn: 'Booking Now | MAD 1059',
+                  colorBtn: AppColors.btnBlue,
+                  colorTitle: Colors.white,
+                  fontBtn: 17,
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => BookingDateTime()
+                            )
+                    );
+                  }
+              ),
+              SizedBox(
+                height: height * 0.02,
+              ),
             ],
           ),
         ),

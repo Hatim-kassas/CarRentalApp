@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
             // Top Brands Widget
             SlideTopBrands(),
             // Top Rated Cars Widget
-            SizedBox(height: height * 0.9, child: CardsWidget()),
+            SizedBox(height: height * 0.81, child: CardsWidget()),
           ],
         ),
       ),
