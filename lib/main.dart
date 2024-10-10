@@ -3,6 +3,7 @@
 import 'package:car_rantal_application/screens/car_deatil.dart';
 import 'package:car_rantal_application/screens/home_page.dart';
 import 'package:car_rantal_application/screens/login_page.dart';
+import 'package:car_rantal_application/screens/main_bottomNavigationBar.dart';
 import 'package:car_rantal_application/screens/sign_up_page.dart';
 import 'package:car_rantal_application/screens/welcome_page.dart';
 import 'package:car_rantal_application/utils/app_colors.dart';
@@ -51,7 +52,7 @@ class _MyAppState extends State<MyApp> {
         'Welcome Page': (context) => WelcomePage(),
         'Sign Up': (context) => SignUpPage(),
         'Login': (context) => LoginPage(),
-        'Home Page': (context) => HomePage()
+        'main': (context) => MainBottomnavigationbar()
       },
     );
   }

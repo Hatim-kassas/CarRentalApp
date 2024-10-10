@@ -90,8 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                   colorTitle: AppColors.textWhite,
                   fontBtn: 24,
                   onPressed: () {
-                    // loginServices.signInWithEmailAndPassword(context);
-                    Navigator.of(context).pushReplacementNamed('Home Page');
+                    loginServices.signInWithEmailAndPassword(context);
                   },
                 ),
                 SizedBox(

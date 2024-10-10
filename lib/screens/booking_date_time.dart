@@ -6,10 +6,12 @@ import 'package:car_rantal_application/utils/app_colors.dart';
 import 'package:car_rantal_application/widgets/Widget%20Booking%20Date&Time/dropdown_menu_time.dart';
 import 'package:car_rantal_application/widgets/Widget%20Custom%20Button/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class BookingDateTime extends StatefulWidget {
-  const BookingDateTime({super.key});
+  final Car car;
+  const BookingDateTime({super.key, required this.car});
 
   @override
   State<BookingDateTime> createState() => _BookingDateTimeState();
@@ -27,9 +29,24 @@ class _BookingDateTimeState extends State<BookingDateTime> {
           padding: const EdgeInsets.only(top: 35),
           child: Column(
             children: [
-              Text(
-                'Date & Time',
-                style: TextStyle(fontFamily: 'InriaSans', fontSize: 22),
+              Row(
+                children: [
+                  Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 14),
+                  child:
+                  IconButton(
+                    icon: Icon(Iconsax.logout, size: 30,),
+                    onPressed: (){},
+                  ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 75),
+                    child: Text(
+                      'Date & Time',
+                      style: TextStyle(fontFamily: 'InriaSans', fontSize: 22),
+                    ),
+                  ),
+                ],
               ),
               SizedBox(
                 height: height * 0.06,
@@ -107,7 +124,7 @@ class _BookingDateTimeState extends State<BookingDateTime> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => PaymentMethod()));
+                              builder: (context) => PaymentMethod(car: widget.car,)));
                     }),
               ),
             ],

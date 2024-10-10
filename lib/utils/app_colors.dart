@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AppColors {
   static const Color backgroundColorBlue = Color.fromRGBO(0, 74, 91, 1);
   static const Color btnBlue = Color.fromRGBO(31, 89, 102, 1);
-  static const Color backgroundColorGrey = Color.fromRGBO(205, 205, 205, 1);
+  static const Color backgroundColorGrey = Color.fromRGBO(218, 218, 218, 1);
   static const Color buttonWelcomPage = Color.fromRGBO(220, 86, 86, 1);
   static const Color buttonRed = Color.fromRGBO(236, 95, 95, 1);
 
@@ -19,7 +19,7 @@ class AppColors {
   static const Color inputText = Color.fromRGBO(53, 53, 53, 0.35);
   static const Color selectOption = Color.fromRGBO(47, 144, 209, 1);
   static const Color searchInput = Color.fromRGBO(222, 222, 222, 1);
-  static const Color calendar = Color.fromRGBO(220, 220, 220, 1);
+  static const Color calendar = Color.fromRGBO(245, 245, 245, 1);
 
   static const Color seeAll = Color.fromRGBO(0, 122, 149, 1);
 

@@ -81,6 +81,7 @@ flutter:
     - assets/img/TeslaCar.jfif
     - assets/img/images.jfif
     - assets/img/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg
+    - assets/img/location.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

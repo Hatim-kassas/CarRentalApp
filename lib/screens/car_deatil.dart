@@ -91,7 +91,7 @@ class _CarDeatilState extends State<CarDeatil> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => BookingDateTime()
+                            builder: (context) => BookingDateTime(car: widget.car,)
                             )
                     );
                   }
