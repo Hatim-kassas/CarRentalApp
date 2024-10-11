@@ -86,7 +86,10 @@ class _ConfirmationState extends State<Confirmation> {
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                     child: Text('Done', style: TextStyle(fontFamily: 'InriaSans', fontSize: 18, color: Colors.white),),
                     onPressed: () {
-
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => MainBottomnavigationbar(initialIndex: 0),
+                        ),
+                      );
                     }
                 ),
               ],
