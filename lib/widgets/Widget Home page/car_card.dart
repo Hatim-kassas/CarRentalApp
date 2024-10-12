@@ -18,11 +18,10 @@ class CarCard extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => CarDeatil(car: car),
-          )
+         showModalBottomSheet(
+          context: context,
+          isScrollControlled: true, // Ensures the sheet can be fully expanded
+          builder: (context) => CarDeatil(car: car),
         );
       },
       child: Card(
@@ -60,13 +59,13 @@ class CarCard extends StatelessWidget {
                     children: [
                       Text(
                         car.price.toString() + " MAD",
-                        style:
-                            TextStyle(fontSize: 14, color: Colors.grey.shade700),
+                        style: TextStyle(
+                            fontSize: 14, color: Colors.grey.shade700),
                       ),
                       Text(
                         " / " + car.date + " Day",
-                        style:
-                            TextStyle(fontSize: 14, color: Colors.grey.shade700),
+                        style: TextStyle(
+                            fontSize: 14, color: Colors.grey.shade700),
                       ),
                     ],
                   ),

@@ -76,7 +76,7 @@ class _AppBarHomepageState extends State<AppBarHomepage> {
       ),
       Padding(
         // padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 20),
-        padding: const EdgeInsets.only(top: 55, left: 20, right: 20),
+        padding: const EdgeInsets.only(top: 55, left: 15, right: 18),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -85,7 +85,7 @@ class _AppBarHomepageState extends State<AppBarHomepage> {
                 Icon(
                   Icons.location_pin,
                   color: Colors.white,
-                  size: 28,
+                  size: 26,
                 ),
                 SizedBox(
                   width: width * 0.02,
@@ -94,7 +94,7 @@ class _AppBarHomepageState extends State<AppBarHomepage> {
                   city != null ? "$city, $country" : 'Fetching location...',
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 20,
+                      fontSize: 18,
                       fontFamily: 'InriaSans'),
                 )
               ],
@@ -105,7 +105,7 @@ class _AppBarHomepageState extends State<AppBarHomepage> {
                 Icon(
                   Icons.notifications,
                   color: Colors.white,
-                  size: 28,
+                  size: 26,
                 ),
               ],
             ),
@@ -113,18 +113,22 @@ class _AppBarHomepageState extends State<AppBarHomepage> {
         ),
       ),
       Padding(
-        padding: const EdgeInsets.only(top: 100, left: 20, right: 20),
+        padding: const EdgeInsets.only(top: 110, left: 15, right: 15),
         child: Column(
           children: [
             SizedBox(
-              height: height * 0.05,
+              height: height * 0.044,
               width: width * 0.76,
               child: TextField(
                 style: TextStyle(fontSize: 15),
                 textAlignVertical: TextAlignVertical.center,
                 decoration: InputDecoration(
                     hintText: 'Search for cars and locations',
-                    hintStyle: TextStyle(color: const Color.fromARGB(255, 141, 141, 141), fontSize: 15, fontFamily: 'InriaSans',),
+                    hintStyle: TextStyle(
+                      color: const Color.fromARGB(255, 141, 141, 141),
+                      fontSize: 15,
+                      fontFamily: 'InriaSans',
+                    ),
                     filled: true,
                     fillColor: AppColors.searchInput,
                     contentPadding: const EdgeInsets.symmetric(
@@ -151,11 +155,11 @@ class _AppBarHomepageState extends State<AppBarHomepage> {
         ),
       ),
       Padding(
-        padding: const EdgeInsets.only(top: 100, left: 345),
+        padding: const EdgeInsets.only(top: 110, left: 345),
         child: Row(
           children: [
             Container(
-              height: height * 0.048,
+              height: height * 0.044,
               decoration: BoxDecoration(
                   color: AppColors.searchInput,
                   borderRadius: BorderRadius.circular(16)),

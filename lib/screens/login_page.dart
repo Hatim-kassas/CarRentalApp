@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors, sort_child_properties_last, avoid_print
 
+import 'package:car_rantal_application/screens/home_page.dart';
+import 'package:car_rantal_application/screens/main_bottomNavigationBar.dart';
 import 'package:car_rantal_application/screens/sign_up_page.dart';
 import 'package:car_rantal_application/services/login_services.dart';
 import 'package:car_rantal_application/utils/app_colors.dart';
@@ -90,7 +92,9 @@ class _LoginPageState extends State<LoginPage> {
                   colorTitle: AppColors.textWhite,
                   fontBtn: 24,
                   onPressed: () {
-                    loginServices.signInWithEmailAndPassword(context);
+                    // loginServices.signInWithEmailAndPassword(context);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => MainBottomnavigationbar()));
                   },
                 ),
                 SizedBox(
@@ -102,7 +106,10 @@ class _LoginPageState extends State<LoginPage> {
                     Text(
                       "Don't have an account? ",
                       style: TextStyle(
-                          fontSize: 16, color: AppColors.textLowScreen1, fontFamily: 'InriaSans',),
+                        fontSize: 16,
+                        color: AppColors.textLowScreen1,
+                        fontFamily: 'InriaSans',
+                      ),
                     ),
                     InkWell(
                       onTap: () {

@@ -23,28 +23,22 @@ class _MainProfileState extends State<MainProfile> {
         InkWell(
           onTap: widget.onPress,
           child: Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: 12.0), // Adjust padding as necessary
+            padding: EdgeInsets.symmetric(horizontal: 20.0), // Adjust padding as necessary
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
-                    // Icon(Iconsax.copy_success, size: 34),
                     widget.icon,
                     SizedBox(
                         width: width * 0.1), // Add space between icon and text
                     Text(
                       widget.text,
-                      style: TextStyle(
-                        fontFamily: 'InriaSans',
-                        fontSize: 20,
-                        color: Colors.black,
-                      ),
+                      style: TextStyle(fontFamily: 'InriaSans',fontSize: 20, color: Colors.black,),
                     ),
                   ],
                 ),
-                Icon(Iconsax.arrow_right_25, size: 30),
+                Icon(Icons.arrow_forward_ios, size: 20),
               ],
             ),
           ),
@@ -53,11 +47,11 @@ class _MainProfileState extends State<MainProfile> {
           height: height * 0.007,
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 30),
+          padding: const EdgeInsets.only(left: 60),
           child: Column(
             children: [
               SizedBox(
-                width: width * 0.8, // Set the width of the Divider
+                width: width * 0.75, // Set the width of the Divider
                 child: Divider(
                   color: Colors.grey.shade400,
                   thickness: 1,

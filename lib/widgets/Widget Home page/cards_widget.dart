@@ -18,7 +18,7 @@ class _CardsWidgetState extends State<CardsWidget> {
     final service = CarCardServices();
 
     return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20),
+      padding: const EdgeInsets.only(left: 15, right: 15),
       child: Column(
         children: [
           Container(

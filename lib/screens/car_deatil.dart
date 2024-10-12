@@ -24,85 +24,92 @@ class _CarDeatilState extends State<CarDeatil> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
-    return Scaffold(
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20, top: 45),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: Container(
-                  width: width * 0.14,
-                  height: 5,
-                  decoration: BoxDecoration(
-                    color: Colors.grey.shade500, // Divider color
-                    borderRadius: BorderRadius.circular(20),
+    return DraggableScrollableSheet(
+        expand: false,
+        initialChildSize: 0.8, // Starts at 70% of the screen height
+        minChildSize: 0.3, // Minimum size when dragged down
+        maxChildSize: 0.94,
+        builder: (BuildContext context, ScrollController scrollController) {
+          return SingleChildScrollView(
+            controller: scrollController,
+            scrollDirection: Axis.vertical,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(
+                    child: Container(
+                      width: width * 0.14,
+                      height: 5,
+                      decoration: BoxDecoration(
+                        color: Colors.grey.shade500, // Divider color
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
                   ),
-                ),
+                  SizedBox(
+                    height: height * 0.04,
+                  ),
+                  TitleImageWidget(
+                      car: widget
+                          .car), // THIS PART OF CODE IMAGE OF CAR AND TITEL
+                  SizedBox(
+                    height: height * 0.01,
+                  ),
+                  Divider(
+                    color: Colors.grey.shade400,
+                    thickness: 1,
+                  ),
+                  SizedBox(
+                    height: height * 0.01,
+                  ),
+                  ProfileInfo(), // THIS PART PROFILE INFORMATION AND CONTACT
+                  SizedBox(
+                    height: height * 0.01,
+                  ),
+                  Divider(
+                    color: Colors.grey.shade400,
+                    thickness: 1,
+                  ),
+                  SizedBox(
+                    height: height * 0.01,
+                  ),
+                  CarInfo(), // THIS PART Car Info
+                  SizedBox(
+                    height: height * 0.01,
+                  ),
+                  Divider(
+                    color: Colors.grey.shade400,
+                    thickness: 1,
+                  ),
+                  SizedBox(
+                    height: height * 0.01,
+                  ),
+                  CarSpecs(),
+                  SizedBox(
+                    height: height * 0.02,
+                  ),
+                  CustomButton(
+                      titleBtn: 'Booking Now | MAD 1059',
+                      colorBtn: AppColors.btnBlue,
+                      colorTitle: Colors.white,
+                      fontBtn: 17,
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => BookingDateTime(
+                                      car: widget.car,
+                                    )));
+                      }),
+                  SizedBox(
+                    height: height * 0.02,
+                  ),
+                ],
               ),
-              SizedBox(
-                height: height * 0.04,
-              ),
-              TitleImageWidget(car: widget.car), // THIS PART OF CODE IMAGE OF CAR AND TITEL
-              SizedBox(
-                height: height * 0.01,
-              ),
-              Divider(
-                color: Colors.grey.shade400,
-                thickness: 1,
-              ),
-              SizedBox(
-                height: height * 0.01,
-              ),
-              ProfileInfo(), // THIS PART PROFILE INFORMATION AND CONTACT
-              SizedBox(
-                height: height * 0.01,
-              ),
-              Divider(
-                color: Colors.grey.shade400,
-                thickness: 1,
-              ),
-              SizedBox(
-                height: height * 0.01,
-              ),
-              CarInfo(), // THIS PART Car Info
-              SizedBox(
-                height: height * 0.01,
-              ),
-              Divider(
-                color: Colors.grey.shade400,
-                thickness: 1,
-              ),
-              SizedBox(
-                height: height * 0.01,
-              ),
-              CarSpecs(),
-              SizedBox(
-                height: height * 0.02,
-              ),
-              CustomButton(
-                  titleBtn: 'Booking Now | MAD 1059',
-                  colorBtn: AppColors.btnBlue,
-                  colorTitle: Colors.white,
-                  fontBtn: 17,
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => BookingDateTime(car: widget.car,)
-                            )
-                    );
-                  }
-              ),
-              SizedBox(
-                height: height * 0.02,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+            ),
+          );
+        });
   }
 }

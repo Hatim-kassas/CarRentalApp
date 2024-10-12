@@ -19,7 +19,7 @@ class _SlideTopBrandsState extends State<SlideTopBrands> {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     return Padding(
-        padding: const EdgeInsets.only(left: 20),
+        padding: const EdgeInsets.only(left: 15,),
         child: Column(
           children: [
             Container(
@@ -33,14 +33,17 @@ class _SlideTopBrandsState extends State<SlideTopBrands> {
                         fontWeight: FontWeight.w600,
                         fontFamily: 'InriaSans'),
                   ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'See All',
-                      style: TextStyle(
-                          color: AppColors.seeAll,
-                          fontSize: 16,
-                          fontFamily: 'InriaSans'),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 15),
+                    child: TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'See All',
+                        style: TextStyle(
+                            color: AppColors.seeAll,
+                            fontSize: 16,
+                            fontFamily: 'InriaSans'),
+                      ),
                     ),
                   ),
                 ],

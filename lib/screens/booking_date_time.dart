@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings
 
 import 'package:car_rantal_application/models/card.dart';
 import 'package:car_rantal_application/screens/payment_method.dart';
@@ -18,6 +18,13 @@ class BookingDateTime extends StatefulWidget {
 }
 
 class _BookingDateTimeState extends State<BookingDateTime> {
+  DateTime today = DateTime.now();
+  void _onDaySelected(DateTime day, DateTime focusedDay) {
+    setState(() {
+      today = day;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -28,16 +35,19 @@ class _BookingDateTimeState extends State<BookingDateTime> {
         child: Padding(
           padding: const EdgeInsets.only(top: 35),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
                   Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 14),
-                  child:
-                  IconButton(
-                    icon: Icon(Iconsax.logout, size: 30,),
-                    onPressed: (){},
-                  ),
+                    padding: const EdgeInsets.symmetric(horizontal: 14),
+                    child: IconButton(
+                      icon: Icon(
+                        Iconsax.logout,
+                        size: 30,
+                      ),
+                      onPressed: () {},
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 75),
@@ -61,21 +71,30 @@ class _BookingDateTimeState extends State<BookingDateTime> {
                 child: TableCalendar(
                   firstDay: DateTime.utc(2010, 10, 16),
                   lastDay: DateTime.utc(2030, 3, 14),
-                  focusedDay: DateTime.now(),
+                  focusedDay: today,
+                  selectedDayPredicate: (day) => isSameDay(day, today),
+                  onDaySelected: _onDaySelected,
                   availableCalendarFormats: const {
                     CalendarFormat.month: 'Month',
                   },
                   calendarStyle: CalendarStyle(
-                    todayDecoration: BoxDecoration(
-                      color: AppColors.btnBlue,
-                      shape: BoxShape.circle,
-                    ),
-                  ),
+                      todayDecoration: BoxDecoration(
+                        color: const Color.fromARGB(180, 57, 144, 164),
+                        shape: BoxShape.circle,
+                      ),
+                      selectedDecoration: BoxDecoration(
+                        color: AppColors.backgroundColorBlue,
+                        shape: BoxShape.circle,
+                      )),
                   headerStyle: HeaderStyle(
                     formatButtonVisible: false, // Hide the format button
                     titleCentered: true, // Center the header title
                   ),
                 ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Text('Selected Day = ' + today.toString().split(' ')[0]),
               ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 20), // Adjust padding
@@ -124,7 +143,9 @@ class _BookingDateTimeState extends State<BookingDateTime> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => PaymentMethod(car: widget.car,)));
+                              builder: (context) => PaymentMethod(
+                                    car: widget.car,
+                                  )));
                     }),
               ),
             ],
