@@ -56,6 +56,12 @@ class _SignUpPageState extends State<SignUpPage> {
                 CustomTextFormField(
                   hintText: 'Enter your Full Name',
                   controller: signupServices.fullname,
+                  validator: (val) {
+                    if (val == null || val.isEmpty) {
+                      return 'Name is empty please enter your name';
+                    }
+                    return null;
+                  },
                 ),
                 SizedBox(
                   height: height * 0.015,
@@ -67,9 +73,10 @@ class _SignUpPageState extends State<SignUpPage> {
                     if (val == null || val.isEmpty) {
                       return 'Email is Empty';
                     }
-                    String pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$';
+                    String pattern =
+                        r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$';
                     RegExp regExp = RegExp(pattern);
-                    if (!regExp.hasMatch(val)){
+                    if (!regExp.hasMatch(val)) {
                       return 'Enter a valid email';
                     }
                     return null;
@@ -99,8 +106,12 @@ class _SignUpPageState extends State<SignUpPage> {
                   controller: signupServices.confirmPassword,
                   obscureText: true,
                   validator: (val) {
-                    if (val != signupServices.password.text) {
+                    if (val == null || val.isEmpty) {
+                      return 'Confirm Password is Empty';
+                    } else if (val != signupServices.password.text) {
                       return 'Passwords do not match';
+                    } else if (val.length <= 5) {
+                      return 'Password is Weak';
                     }
                     return null;
                   },
@@ -132,7 +143,10 @@ class _SignUpPageState extends State<SignUpPage> {
                     Text(
                       "I have an acconut? ",
                       style: TextStyle(
-                          fontSize: 16, color: AppColors.textLowScreen1, fontFamily: 'InriaSans',),
+                        fontSize: 16,
+                        color: AppColors.textLowScreen1,
+                        fontFamily: 'InriaSans',
+                      ),
                     ),
                     InkWell(
                       onTap: () {

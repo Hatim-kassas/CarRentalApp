@@ -11,7 +11,10 @@ import 'package:car_rantal_application/widgets/Widget%20Logo/logo.dart';
 import 'package:car_rantal_application/widgets/widget%20login%20page/custom_divider_with_text.dart';
 import 'package:car_rantal_application/widgets/widget%20login%20page/login_with_google.dart';
 import 'package:car_rantal_application/widgets/widget%20login%20page/widget_text_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -58,6 +61,12 @@ class _LoginPageState extends State<LoginPage> {
                 CustomTextFormField(
                   hintText: 'Enter your email',
                   controller: loginServices.email,
+                  validator: (val) {
+                    if (val == null || val.isEmpty) {
+                      return 'this field is empty please enter your Email';
+                    }
+                    return null;
+                  },
                 ),
                 SizedBox(
                   height: height * 0.015,
@@ -66,6 +75,12 @@ class _LoginPageState extends State<LoginPage> {
                   hintText: 'Enter your password',
                   controller: loginServices.password,
                   obscureText: true,
+                  validator: (val) {
+                    if (val == null || val.isEmpty) {
+                      return 'this field is empty please enter Password';
+                    }
+                    return null;
+                  },
                 ),
                 SizedBox(
                   height: height * 0.015,
@@ -87,16 +102,17 @@ class _LoginPageState extends State<LoginPage> {
                   height: height * 0.015,
                 ),
                 CustomButton(
-                  titleBtn: 'Login',
-                  colorBtn: AppColors.buttonRed,
-                  colorTitle: AppColors.textWhite,
-                  fontBtn: 24,
-                  onPressed: () {
-                    // loginServices.signInWithEmailAndPassword(context);
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => MainBottomnavigationbar()));
-                  },
-                ),
+                    titleBtn: 'Login',
+                    colorBtn: AppColors.buttonRed,
+                    colorTitle: AppColors.textWhite,
+                    fontBtn: 24,
+                    onPressed: () {
+                      if (_formState.currentState!.validate()) {
+                        loginServices.signInWithEmailAndPassword(
+                            context, _formState
+                        );
+                      }
+                    }),
                 SizedBox(
                   height: height * 0.025,
                 ),

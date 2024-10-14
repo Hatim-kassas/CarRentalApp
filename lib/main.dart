@@ -46,6 +46,7 @@ class _MyAppState extends State<MyApp> {
         scaffoldBackgroundColor: AppColors.backgroundColorGrey,
       ),
       initialRoute: 'Welcome Page',
+      home: (FirebaseAuth.instance.currentUser != null && FirebaseAuth.instance.currentUser!.emailVerified) ? MainBottomnavigationbar() : LoginPage(),
       routes: {
         'Welcome Page': (context) => WelcomePage(),
         'Sign Up': (context) => SignUpPage(),

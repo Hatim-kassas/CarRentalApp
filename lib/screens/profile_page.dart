@@ -3,7 +3,9 @@
 import 'package:car_rantal_application/utils/app_colors.dart';
 import 'package:car_rantal_application/widgets/Widget%20Profile%20Page/header_profile.dart';
 import 'package:car_rantal_application/widgets/Widget%20Profile%20Page/main_profile.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:iconsax/iconsax.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -59,7 +61,12 @@ class _ProfilePageState extends State<ProfilePage> {
         MainProfile(
           icon: Icon(Iconsax.logout_14, size: 30),
           text: 'Logout',
-          onPress: () {},
+          onPress: () async{
+            GoogleSignIn googleSignIn = GoogleSignIn();
+            googleSignIn.disconnect();
+            Navigator.of(context).pushNamedAndRemoveUntil('Login', (route) => false);
+            await FirebaseAuth.instance.signOut();
+          },
         ),
       ],
     ));

@@ -24,6 +24,7 @@ class SignupServices {
         email: email.text,
         password: password.text,
       );
+      FirebaseAuth.instance.currentUser!.sendEmailVerification();
       Navigator.of(context).pushReplacementNamed('Login');
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
