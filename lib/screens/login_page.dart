@@ -15,7 +15,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -86,7 +85,12 @@ class _LoginPageState extends State<LoginPage> {
                   height: height * 0.015,
                 ),
                 InkWell(
-                    onTap: () {},
+                    onTap: () async {
+                      await loginServices.credential.sendPasswordResetEmail(email: loginServices.email.text);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Show Your Email')),
+                      );
+                    },
                     child: Container(
                       alignment: Alignment.topRight,
                       child: Text(
@@ -109,8 +113,7 @@ class _LoginPageState extends State<LoginPage> {
                     onPressed: () {
                       if (_formState.currentState!.validate()) {
                         loginServices.signInWithEmailAndPassword(
-                            context, _formState
-                        );
+                            context, _formState);
                       }
                     }),
                 SizedBox(
